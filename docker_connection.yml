@@ -1,0 +1,6 @@
+- hosts: aman1
+  connection: docker
+  tasks:
+    - package:
+          name: git
+          state: present

@@ -1,0 +1,11 @@
+- hosts: web_servers
+  connection: docker
+  tasks:
+       - git:
+           repo: https://github.com/aman5198/try.git
+           dest: /var/html/www/
+
+       - service:
+           name: httpd
+           state: restarted
+       

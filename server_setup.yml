@@ -1,0 +1,22 @@
+- hosts: webservers
+  connection: docker
+  tasks:
+          - package:
+                name: httpd
+                state: present
+          - systemd:
+                daemon_reload: yes
+          -  service:
+                name: httpd
+                state: started
+                
+- hosts: loadbalancer
+  connection: docker
+  tasks:
+          - package: 
+                name: ngnix
+                state: present
+          - service:
+                name: ngnix
+                state: started
+
